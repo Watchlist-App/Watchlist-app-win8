@@ -24,7 +24,8 @@ namespace Watchlist_app_win8
 
         public MainPage()
         {
-            Data.EventHandler = new Data.MyEvent(show);
+            Data.EventHandler = new Data.MyEvent(showGroup);
+            Info.EventHandler = new Info.MyEvent(showCurrent);
             this.InitializeComponent();
             StartClass.start();
         }
@@ -34,7 +35,7 @@ namespace Watchlist_app_win8
             this.Frame.Navigate(typeof(SecondPage));
         }
 
-        private void show(Movies current)  //temporary output
+        private void showGroup(Movies current)  //temporary output
         {
 
             _movies = current.results;
@@ -43,11 +44,17 @@ namespace Watchlist_app_win8
             gvMain.ItemsSource = _movies;           
         }
 
-        private void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void showCurrent(Movie current)  //temporary output
+        {
+            
+            titleBox.Text = current.Title;
+            overview.Text = current.overview;
+        }
+
+        private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MoviePreview temp = (MoviePreview)gvMain.SelectedItem;
-            var dlg = new MessageDialog(temp.Title); 
-            dlg.ShowAsync(); 
+            InfoLoader.getMoreInfo(temp.id);
         }
 
     }

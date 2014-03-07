@@ -54,7 +54,7 @@ namespace Watchlist_app_win8.DataFetchers
         public string revenue { get; set; }
         public string id { get; set; }
 
-        //public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
+        public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
     }
 
 }

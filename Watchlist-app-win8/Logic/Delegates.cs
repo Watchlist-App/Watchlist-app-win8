@@ -13,4 +13,10 @@ namespace Watchlist_app_win8.Logic
         public delegate void MyEvent(Movies current);
         public static MyEvent EventHandler;
     }
+
+    static class Info                    //delegate prototype
+    {
+        public delegate void MyEvent(Movie current);
+        public static MyEvent EventHandler;
+    }
 }

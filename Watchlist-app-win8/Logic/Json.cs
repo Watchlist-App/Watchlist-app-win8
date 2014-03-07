@@ -17,5 +17,11 @@ namespace Watchlist_app_win8.Logic
             return movie;
         }
 
+        public static Movie deserializeJsonMetaData(string jsonString)
+        {
+            Movie movie = JsonConvert.DeserializeObject<Movie>(jsonString);
+            return movie;
+        }
+
     }
 }
