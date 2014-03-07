@@ -15,7 +15,7 @@ namespace Watchlist_app_win8.DataFetchers
     class Movies
     {
 
-        public List<MoviePreview> results { get; set; }
+        public ObservableCollection<MoviePreview> results { get; set; }
         public List<MoviePreview> watchlist { get; set; }
 
     }
@@ -25,10 +25,13 @@ namespace Watchlist_app_win8.DataFetchers
         public MoviePreview()
         {
             id = "empty";
+            fullPosterPath = "http://image.tmdb.org/t/p/w150";
         }
         public string Title { get; set; }
         public string poster_path { get; set; } 
         public string id { get; set; }
+
+        public string fullPosterPath { get; set; }
 
         public ObservableCollection<MoviePreview> movieCall = new ObservableCollection<MoviePreview>();
     }

@@ -2,6 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using System.Net.Http;
+using System.Collections.ObjectModel;
 
 using Watchlist_app_win8.Views;
 using Watchlist_app_win8.DataFetchers;
@@ -17,6 +18,8 @@ namespace Watchlist_app_win8
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<MoviePreview> _movies; 
+
         public MainPage()
         {
             Data.EventHandler = new Data.MyEvent(show);
@@ -29,9 +32,13 @@ namespace Watchlist_app_win8
             this.Frame.Navigate(typeof(SecondPage));
         }
 
-        private void show(string result)  //temporary output
+        private void show(Movies current)  //temporary output
         {
-            textBox1.Text = result;
+
+            _movies = current.results;
+            foreach (var value in _movies)
+                value.fullPosterPath += value.poster_path;
+            gvMain.ItemsSource = _movies;           
         }
 
     }

@@ -6,9 +6,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+   
     <Grid Background="WhiteSmoke">
-        <Button Content="View" HorizontalAlignment="Left" Margin="983,277,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.495,0.471" Height="84" Width="236" Foreground="Black" BorderBrush="#FF080707"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="132,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="590" Width="759"/>
+        <GridView x:Name="gvMain" Grid.Row="1" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Left" Width="160" Height="160">
+                        <Border Background="{StaticResource 
+                 ListViewItemPlaceholderBackgroundThemeBrush}">
+                            <Image Source="{Binding fullPosterPath}"                   Stretch="UniformToFill"/>
+                        </Border>
+                        <StackPanel VerticalAlignment="Bottom"                  Background="{StaticResource                  ListViewItemOverlayBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding Title}"                     Foreground="{StaticResource                     ListViewItemOverlayForegroundThemeBrush}"                                   Margin="15,0,15,0"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
+
+
+
 </Page>
