@@ -11,6 +11,18 @@ namespace Watchlist_app_win8.DataFetchers
     //
     //
     //
+     class MoviePreview
+     {
+        public MoviePreview()
+        {
+            id = "empty";
+        }
+        public string Title { get; set; }
+        public string poster_path { get; set; } 
+        public string id { get; set; }
+
+        //public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
+    }
 
     class Movie
     {
@@ -32,4 +44,5 @@ namespace Watchlist_app_win8.DataFetchers
 
         //public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
     }
+
 }
