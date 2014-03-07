@@ -3,6 +3,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using System.Net.Http;
 using System.Collections.ObjectModel;
+using Windows.UI.Popups; 
+
 
 using Watchlist_app_win8.Views;
 using Watchlist_app_win8.DataFetchers;
@@ -39,6 +41,13 @@ namespace Watchlist_app_win8
             foreach (var value in _movies)
                 value.fullPosterPath += value.poster_path;
             gvMain.ItemsSource = _movies;           
+        }
+
+        private void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MoviePreview temp = (MoviePreview)gvMain.SelectedItem;
+            var dlg = new MessageDialog(temp.Title); 
+            dlg.ShowAsync(); 
         }
 
     }

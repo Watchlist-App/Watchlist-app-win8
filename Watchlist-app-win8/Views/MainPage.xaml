@@ -6,9 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-   
-    <Grid Background="WhiteSmoke">
-        <GridView x:Name="gvMain" Grid.Row="1" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343">
+
+
+    <Grid Background="#FF464343">
+        <GridView x:Name="gvMain" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343" Margin="0,140,679,0" SelectionChanged="gvMain_SelectionChanged">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Left" Width="160" Height="160">
@@ -18,11 +19,14 @@
                         </Border>
                         <StackPanel VerticalAlignment="Bottom"                  Background="{StaticResource                  ListViewItemOverlayBackgroundThemeBrush}">
                             <TextBlock Text="{Binding Title}"                     Foreground="{StaticResource                     ListViewItemOverlayForegroundThemeBrush}"                                   Margin="15,0,15,0"/>
+
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Watchlist-app-win8" VerticalAlignment="Top" Height="61" FontSize="48" RenderTransformOrigin="0.491,0.512" Margin="182,42,0,0" Width="505" Foreground="Black"/>
+        <Image x:Name="imageBox" HorizontalAlignment="Left" Height="316" Margin="848,140,0,0" VerticalAlignment="Top" Width="302"/>
     </Grid>
 
 
