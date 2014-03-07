@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Watchlist_app_win8.DataFetchers
 {
@@ -11,6 +12,14 @@ namespace Watchlist_app_win8.DataFetchers
     //
     //
     //
+    class Movies
+    {
+
+        public List<MoviePreview> results { get; set; }
+        public List<MoviePreview> watchlist { get; set; }
+
+    }
+
      class MoviePreview
      {
         public MoviePreview()
@@ -21,7 +30,7 @@ namespace Watchlist_app_win8.DataFetchers
         public string poster_path { get; set; } 
         public string id { get; set; }
 
-        //public ObservableCollection<Movie> movieCall = new ObservableCollection<Movie>();
+        public ObservableCollection<MoviePreview> movieCall = new ObservableCollection<MoviePreview>();
     }
 
     class Movie
