@@ -75,6 +75,8 @@
 
         </ListView>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Watchlist-app-win8" VerticalAlignment="Top" Height="61" FontSize="48" RenderTransformOrigin="0.491,0.512" Margin="851,30,0,0" Width="505" Foreground="Black"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left"  Background ="Transparent"  Margin="114,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="56" Width="276" Foreground="White"/>
+        <Button Content="Search" Background ="Transparent" HorizontalAlignment="Left" Margin="430,72,0,0" VerticalAlignment="Top" Height="59" Width="136" Click="Button_Click_1"/>
     </Grid>
 
 

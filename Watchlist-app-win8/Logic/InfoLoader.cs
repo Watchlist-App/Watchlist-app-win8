@@ -16,7 +16,6 @@ namespace Watchlist_app_win8.Logic
             string responce = await Request.getInfo(URL);
             Movie current = Json.deserializeJsonMetaData(responce);
             return current;
-            //Info.EventHandler(current);
         }
     }
 }

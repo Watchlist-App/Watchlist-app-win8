@@ -20,14 +20,14 @@ namespace Watchlist_app_win8
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ObservableCollection<MoviePreview> _movies; 
+        private ObservableCollection<MoviePreview> _movies;
+        private ObservableCollection<Movie> MovieInfo = new ObservableCollection<Movie>();
 
         public MainPage()
         {
             Data.EventHandler = new Data.MyEvent(showGroup);
-            Info.EventHandler = new Info.MyEvent(showCurrent);
             this.InitializeComponent();
-            StartClass.start();
+            StartClass.start("https://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,6 +43,7 @@ namespace Watchlist_app_win8
                 { 
                 value.fullPosterPath += value.poster_path;
                 temp = await InfoLoader.getMoreInfo(value.id);
+                MovieInfo.Add(temp);
                 value.overview = temp.overview;
                 }
                
@@ -59,6 +60,13 @@ namespace Watchlist_app_win8
         {
             MoviePreview temp = (MoviePreview)gvMain.SelectedItem;
             InfoLoader.getMoreInfo(temp.id);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string temp = searchBox.Text;
+            if (temp != "")
+                StartClass.start("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
         }
 
     }
