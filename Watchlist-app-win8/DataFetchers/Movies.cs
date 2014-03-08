@@ -25,11 +25,14 @@ namespace Watchlist_app_win8.DataFetchers
         public MoviePreview()
         {
             id = "empty";
-            fullPosterPath = "http://image.tmdb.org/t/p/w150";
+            fullPosterPath = "http://image.tmdb.org/t/p/w300";
         }
         public string Title { get; set; }
+        public string overview { get; set; }
+        public string release_date { get; set; }
         public string poster_path { get; set; } 
         public string id { get; set; }
+        public string Vote_Average { get; set; }
 
         public string fullPosterPath { get; set; }
 

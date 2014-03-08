@@ -35,20 +35,24 @@ namespace Watchlist_app_win8
             this.Frame.Navigate(typeof(SecondPage));
         }
 
-        private void showGroup(Movies current)  //temporary output
+        private async void showGroup(Movies current)  //temporary output
         {
-
+            Movie temp = new Movie();
             _movies = current.results;
             foreach (var value in _movies)
+                { 
                 value.fullPosterPath += value.poster_path;
+                temp = await InfoLoader.getMoreInfo(value.id);
+                value.overview = temp.overview;
+                }
+               
             gvMain.ItemsSource = _movies;           
         }
 
         private void showCurrent(Movie current)  //temporary output
         {
-            
-            titleBox.Text = current.Title;
-            overview.Text = current.overview;
+            //titleBox.Text = current.Title;
+            //overview.Text = current.overview;
         }
 
         private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)

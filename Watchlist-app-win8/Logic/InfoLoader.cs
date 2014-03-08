@@ -10,12 +10,13 @@ namespace Watchlist_app_win8.Logic
 {
     class InfoLoader
     {
-        public static async void getMoreInfo(string id)
+        public static async Task<Movie> getMoreInfo(string id)
         {
             string URL = "http://api.themoviedb.org/3/movie/" + id + "?api_key=86afaae5fbe574d49418485ca1e58803&append_to_response=releases,trailers";
             string responce = await Request.getInfo(URL);
             Movie current = Json.deserializeJsonMetaData(responce);
-            Info.EventHandler(current);
+            return current;
+            //Info.EventHandler(current);
         }
     }
 }
