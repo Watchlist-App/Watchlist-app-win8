@@ -115,6 +115,7 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="DataFetchers\Movies.cs" />
     <Compile Include="DataFetchers\Request.cs" />
+    <Compile Include="DataFetchers\User.cs" />
     <Compile Include="Logic\Delegates.cs" />
     <Compile Include="Logic\InfoLoader.cs" />
     <Compile Include="Logic\Json.cs" />

@@ -23,5 +23,13 @@ namespace Watchlist_app_win8.Logic
             return movie;
         }
 
+        public static User Serialization_User(string data)
+        {
+            data = data.Replace('[', ' ');
+            data = data.Replace(']', ' ');
+            User CurrentUser = JsonConvert.DeserializeObject<User>(data);
+            return CurrentUser;
+        }
+
     }
 }

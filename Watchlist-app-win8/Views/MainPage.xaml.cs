@@ -21,6 +21,7 @@ namespace Watchlist_app_win8
     public sealed partial class MainPage : Page
     {
         private ObservableCollection<MoviePreview> _movies;
+        private ObservableCollection<MoviePreview> description = new ObservableCollection<MoviePreview>();
         private ObservableCollection<Movie> MovieInfo = new ObservableCollection<Movie>();
 
         public MainPage()
@@ -42,9 +43,11 @@ namespace Watchlist_app_win8
             foreach (var value in _movies)
                 { 
                 value.fullPosterPath += value.poster_path;
+                value.fullBackdropPath += value.backdrop_path;
                 temp = await InfoLoader.getMoreInfo(value.id);
                 MovieInfo.Add(temp);
                 value.overview = temp.overview;
+                value.Vote_Average += "/10";
                 }
                
             gvMain.ItemsSource = _movies;           
@@ -58,15 +61,20 @@ namespace Watchlist_app_win8
 
         private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MoviePreview temp = (MoviePreview)gvMain.SelectedItem;
-            InfoLoader.getMoreInfo(temp.id);
+            description.Add((MoviePreview)gvMain.SelectedItem);
+            gvSecond.ItemsSource = description;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void searchButtonClick(object sender, RoutedEventArgs e)
         {
             string temp = searchBox.Text;
             if (temp != "")
                 StartClass.start("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
+        }
+
+        private void tempName(object sender, RoutedEventArgs e)
+        {
+            
         }
 
     }

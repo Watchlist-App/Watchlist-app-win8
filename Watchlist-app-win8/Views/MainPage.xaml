@@ -9,7 +9,7 @@
 
 
     <Grid Background="#FF464343">
-        <ListView x:Name="gvMain" Grid.Row="2" VerticalAlignment="Bottom" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343" Margin="0,140,0,0" SelectionChanged="gvMain_SelectionChanged" HorizontalAlignment="Left" Width="768">
+        <ListView x:Name="gvMain" VerticalAlignment="Bottom" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343" SelectionChanged="gvMain_SelectionChanged" HorizontalAlignment="Left" Width="800" Height="900" Margin="0,-132,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Right" Width="600" Height="600">
@@ -17,7 +17,7 @@
                  ListViewItemPlaceholderBackgroundThemeBrush}">
                             <Image Source="{Binding fullPosterPath}"  VerticalAlignment="Top" HorizontalAlignment="Left"      Stretch="None"/>
                         </Border>
-                        
+
                         <StackPanel VerticalAlignment="Bottom"
                             Height="150"
                             Background="{StaticResource                  
@@ -37,6 +37,7 @@
                             Foreground="{StaticResource                                           
                             ListViewItemOverlayForegroundThemeBrush}"                                   
                             Margin="15,0,15,0"/>
+
 
                             <TextBlock Text="{Binding Vote_Average}" 
                             VerticalAlignment="Stretch"
@@ -66,7 +67,7 @@
                             Foreground="{StaticResource                                           
                             ListViewItemOverlayForegroundThemeBrush}"                                   
                             Margin="15,0,15,0"/>
-                            
+
                         </StackPanel>
 
                     </Grid>
@@ -74,9 +75,27 @@
             </ListView.ItemTemplate>
 
         </ListView>
+        
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Watchlist-app-win8" VerticalAlignment="Top" Height="61" FontSize="48" RenderTransformOrigin="0.491,0.512" Margin="851,30,0,0" Width="505" Foreground="Black"/>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left"  Background ="Transparent"  Margin="114,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="56" Width="276" Foreground="White"/>
-        <Button Content="Search" Background ="Transparent" HorizontalAlignment="Left" Margin="430,72,0,0" VerticalAlignment="Top" Height="59" Width="136" Click="Button_Click_1"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left"  Background ="Transparent"  Margin="118,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="56" Width="276" Foreground="White"/>       
+        <Button Content="Search" Background ="Transparent" HorizontalAlignment="Left" Margin="488,55,0,0" VerticalAlignment="Top" Height="59" Width="136" Click="searchButtonClick"/>
+        
+        <ListView x:Name="gvSecond" HorizontalAlignment="Center" Height="768" Margin="800,0,0,0" VerticalAlignment="Center" Width="566">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Right" Width="600" Height="400">
+                        <Border Background="{StaticResource 
+                 ListViewItemPlaceholderBackgroundThemeBrush}">
+                            <Image Source="{Binding fullBackdropPath}"       Stretch="Fill"/>
+                        </Border>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        
+        
     </Grid>
 
 
