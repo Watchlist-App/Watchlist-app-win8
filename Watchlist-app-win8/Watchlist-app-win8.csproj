@@ -115,9 +115,11 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="DataFetchers\Movies.cs" />
     <Compile Include="DataFetchers\Request.cs" />
+    <Compile Include="DataFetchers\User.cs" />
     <Compile Include="Logic\Delegates.cs" />
     <Compile Include="Logic\InfoLoader.cs" />
     <Compile Include="Logic\Json.cs" />
+    <Compile Include="Logic\LoginClass.cs" />
     <Compile Include="Logic\StartClass.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -160,6 +162,7 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
