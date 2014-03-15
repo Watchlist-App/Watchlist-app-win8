@@ -89,12 +89,12 @@
                         <TextBlock Text="Sign In With an Account"  HorizontalAlignment="Center" Foreground="White" FontSize="25" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
-                        <TextBlock Text="Email Id" Margin="10" Foreground="White" FontSize="25" />
+                        <TextBlock Text="User Name" Margin="10" Foreground="White" FontSize="25" />
                         <TextBox x:Name="id"  Height="40" Margin="13,1" Width="408"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock Text="Password" Foreground="White"  FontSize="25" />
-                        <TextBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
+                        <PasswordBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
                         <Button x:Name="loginclick" Click="loginClick" Foreground="Wheat"   Width="100" Content="Login" ></Button>

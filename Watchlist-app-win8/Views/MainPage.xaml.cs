@@ -1,27 +1,8 @@
-﻿using System;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using System.Net.Http;
 using System.Collections.ObjectModel;
-using Windows.UI.Popups;
-using Watchlist_app_win8.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Popups;
 
-using Watchlist_app_win8.Common;
 using Watchlist_app_win8.Views;
 using Watchlist_app_win8.DataFetchers;
 using Watchlist_app_win8.Logic;
@@ -39,13 +20,6 @@ namespace Watchlist_app_win8
         private ObservableCollection<MoviePreview> _movies;
         private ObservableCollection<MoviePreview> description = new ObservableCollection<MoviePreview>();
         private ObservableCollection<Movie> MovieInfo = new ObservableCollection<Movie>();
-
-        private NavigationHelper navigationHelper;
-
-        public NavigationHelper NavigationHelper
-        {
-            get { return this.navigationHelper; }
-        }
 
         public MainPage()
         {
@@ -89,7 +63,7 @@ namespace Watchlist_app_win8
 
         private async void loginClick(object sender, RoutedEventArgs e)
         {
-            await LoginClass.startLogin(id.Text, pwd.Text);
+            await LoginClass.startLogin(id.Text, pwd.Password);
             this.Frame.Navigate(typeof(SecondPage));
 
             logincontrol1.IsOpen = false;
@@ -100,7 +74,7 @@ namespace Watchlist_app_win8
 
 
 
-        private async void showGroup(Movies current)  //temporary output
+        private async void showGroup(Movies current) 
         {
             Movie temp = new Movie();
             _movies = current.results;
@@ -112,16 +86,14 @@ namespace Watchlist_app_win8
                 MovieInfo.Add(temp);
                 value.overview = temp.overview;
                 value.Vote_Average += "/10";
-                }
-               
+                }               
             gvMain.ItemsSource = _movies;           
         }
 
 
         private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            description.Add((MoviePreview)gvMain.SelectedItem);
-            //gvSecond.ItemsSource = description;
+            description.Add((MoviePreview)gvMain.SelectedItem);          
         }
 
         private void searchButtonClick(object sender, RoutedEventArgs e)
@@ -129,11 +101,6 @@ namespace Watchlist_app_win8
             string temp = searchBox.Text;
             if (temp != "")
                 StartClass.start("http://api.themoviedb.org/3/search/movie?query=" + temp + "&api_key=86afaae5fbe574d49418485ca1e58803");
-        }
-
-        private void tempName(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Button_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
