@@ -5,11 +5,13 @@
     xmlns:local="using:Watchlist_app_win8"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="1080"
+    Width="1920"
     mc:Ignorable="d">
 
 
     <Grid Background="#FF464343">
-        <ListView x:Name="gvMain" VerticalAlignment="Bottom" Padding="116,37,40,46" Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343" SelectionChanged="gvMain_SelectionChanged" HorizontalAlignment="Left" Width="800" Height="900" Margin="0,-132,0,0">
+        <ListView x:Name="gvMain" IsEnabled="False" Opacity="0"  VerticalAlignment="Bottom" Padding="116,37,40,46"  Foreground="#FF403D3D" BorderBrush="Black" Background="#FF464343" SelectionChanged="gvMain_SelectionChanged" HorizontalAlignment="Left" Width="800" Height="900" Margin="0,-132,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Right" Width="600" Height="600">
@@ -79,23 +81,31 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Watchlist-app-win8" VerticalAlignment="Top" Height="61" FontSize="48" RenderTransformOrigin="0.491,0.512" Margin="851,30,0,0" Width="505" Foreground="Black"/>
         <TextBox x:Name="searchBox" HorizontalAlignment="Left"  Background ="Transparent"  Margin="118,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="56" Width="276" Foreground="White"/>       
         <Button Content="Search" Background ="Transparent" HorizontalAlignment="Left" Margin="488,55,0,0" VerticalAlignment="Top" Height="59" Width="136" Click="searchButtonClick"/>
-        
-        <ListView x:Name="gvSecond" HorizontalAlignment="Center" Height="768" Margin="800,0,0,0" VerticalAlignment="Center" Width="566">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid HorizontalAlignment="Right" Width="600" Height="400">
-                        <Border Background="{StaticResource 
-                 ListViewItemPlaceholderBackgroundThemeBrush}">
-                            <Image Source="{Binding fullBackdropPath}"       Stretch="Fill"/>
-                        </Border>
-                        
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
 
-        </ListView>
+        <ContentControl  x:Name="container"  Height="450" >
+            <Popup x:Name="logincontrol1" IsOpen="True" >
+                <StackPanel Orientation="Vertical" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="450" Width="1920" x:Name="pop" >
+                    <StackPanel>
+                        <TextBlock Text="Sign In With an Account"  HorizontalAlignment="Center" Foreground="White" FontSize="25" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
+                        <TextBlock Text="Email Id" Margin="10" Foreground="White" FontSize="25" />
+                        <TextBox x:Name="id"  Height="40" Margin="13,1" Width="408"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Password" Foreground="White"  FontSize="25" />
+                        <PasswordBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
+                        <Button x:Name="loginclick" Click="loginclick_Click_1" Foreground="Wheat"   Width="100" Content="Login" ></Button>
+                        <Button x:Name="cancel" Click="loginclick_Click_1"   Foreground="Wheat"  Width="100" Content="Cancel" ></Button>
+                    </StackPanel>
+                </StackPanel>
+            </Popup>
+        </ContentControl>
         
         
+
     </Grid>
 
 

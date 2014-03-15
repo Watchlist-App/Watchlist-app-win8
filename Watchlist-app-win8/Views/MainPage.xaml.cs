@@ -36,6 +36,43 @@ namespace Watchlist_app_win8
             this.Frame.Navigate(typeof(SecondPage));
         }
 
+        private void loginclick_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!logincontrol1.IsOpen)
+            {
+                gvMain.IsEnabled = false;
+                this.Opacity = 0;
+                container.IsEnabled = true;
+                logincontrol1.IsOpen = true;
+                pop.Width = Window.Current.Bounds.Width;
+            }
+            else
+            {
+                logincontrol1.IsOpen = false;
+                this.Opacity = 1.0;
+                gvMain.IsEnabled = true;
+                gvMain.Opacity = 1.0;
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!logincontrol1.IsOpen)
+            {
+                gvMain.IsEnabled = false;
+                this.Opacity = .4;
+                container.IsEnabled = true;
+                logincontrol1.IsOpen = true;
+                pop.Width = Window.Current.Bounds.Width;
+            }
+            else
+            {
+                logincontrol1.IsOpen = false;
+                this.Opacity = 1.0;
+                gvMain.IsEnabled = true;
+            }
+        }
+
         private async void showGroup(Movies current)  //temporary output
         {
             Movie temp = new Movie();
@@ -62,7 +99,7 @@ namespace Watchlist_app_win8
         private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             description.Add((MoviePreview)gvMain.SelectedItem);
-            gvSecond.ItemsSource = description;
+            //gvSecond.ItemsSource = description;
         }
 
         private void searchButtonClick(object sender, RoutedEventArgs e)
