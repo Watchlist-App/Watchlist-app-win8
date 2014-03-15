@@ -94,7 +94,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock Text="Password" Foreground="White"  FontSize="25" />
-                        <PasswordBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
+                        <TextBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
                         <Button x:Name="loginclick" Click="loginClick" Foreground="Wheat"   Width="100" Content="Login" ></Button>

@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Watchlist_app_win8.Common;
+
 // Шаблон пустого приложения задокументирован по адресу http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace Watchlist_app_win8
@@ -39,7 +41,7 @@ namespace Watchlist_app_win8
         /// будет использоваться, например, если приложение запускается для открытия конкретного файла.
         /// </summary>
         /// <param name="e">Сведения о запросе и обработке запуска.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -58,13 +60,22 @@ namespace Watchlist_app_win8
                 // Создание фрейма, который станет контекстом навигации, и переход к первой странице
                 rootFrame = new Frame();
                 // Задайте язык по умолчанию
+                SuspensionManager.RegisterFrame(rootFrame, "AppFrame"); 
+
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Загрузить состояние за ранее приостановленного приложения
+                     try             
+                     {                
+                         await SuspensionManager.RestoreAsync();           
+                     }             
+                     catch (SuspensionManagerException)            
+                     {                
+                         // Ошибка восстановления данных             
+                     }
                 }
 
                 // Размещение фрейма в текущем окне
@@ -99,10 +110,10 @@ namespace Watchlist_app_win8
         /// </summary>
         /// <param name="sender">Источник запроса приостановки.</param>
         /// <param name="e">Сведения о запросе приостановки.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Сохранить состояние приложения и остановить все фоновые операции
+            await SuspensionManager.SaveAsync(); 
             deferral.Complete();
         }
     }

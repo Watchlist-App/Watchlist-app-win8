@@ -45,6 +45,7 @@
                         AutomationProperties.ItemType="Navigation Button" Foreground="Black" BorderBrush="Black" Background="#FF040404"/>
             <TextBlock x:Name="pageTitle" Text="Watchlist-app-win8" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Foreground="Black"/>
+            <TextBlock x:Name="userName" Grid.Column="1" HorizontalAlignment="Left" Margin="956,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="50" Width="221" FontSize="20" Foreground="#FF0A0909"/>
         </Grid>
     </Grid>
 </Page>

@@ -54,8 +54,8 @@ namespace Watchlist_app_win8.Views
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
-            var dlg = new MessageDialog(LoginClass.currentUser.name);
-            dlg.ShowAsync();
+
+            userName.Text = LoginClass.currentUser.name;
         }
 
         /// <summary>

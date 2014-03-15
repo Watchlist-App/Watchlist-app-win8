@@ -17,9 +17,9 @@ namespace Watchlist_app_win8.Logic
 
         public static User currentUser;
 
-        public async static Task<User> startLogin()
+        public async static Task<User> startLogin(string name, string pass)
         {
-             string responce = await Request.getInfo("http://watchlist-app-server.herokuapp.com/user?name=Dmitry Mazuro&password=12345");
+             string responce = await Request.getInfo("http://watchlist-app-server.herokuapp.com/user?name="+ name + "&password=" + pass);
              currentUser = Json.Serialization_User(responce);
              return currentUser;
 

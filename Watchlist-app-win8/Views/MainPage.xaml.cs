@@ -3,9 +3,25 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using System.Net.Http;
 using System.Collections.ObjectModel;
-using Windows.UI.Popups; 
+using Windows.UI.Popups;
+using Watchlist_app_win8.Common;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
-
+using Watchlist_app_win8.Common;
 using Watchlist_app_win8.Views;
 using Watchlist_app_win8.DataFetchers;
 using Watchlist_app_win8.Logic;
@@ -24,11 +40,27 @@ namespace Watchlist_app_win8
         private ObservableCollection<MoviePreview> description = new ObservableCollection<MoviePreview>();
         private ObservableCollection<Movie> MovieInfo = new ObservableCollection<Movie>();
 
+        private NavigationHelper navigationHelper;
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
         public MainPage()
         {
             Data.EventHandler = new Data.MyEvent(showGroup);
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;           
+
             StartClass.start("https://api.themoviedb.org/3/movie/popular?api_key=86afaae5fbe574d49418485ca1e58803");
+
+            if (LoginClass.currentUser != null)
+            {
+                logincontrol1.IsOpen = false;
+                gvMain.IsEnabled = true;
+                gvMain.Opacity = 1.0;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,9 +89,16 @@ namespace Watchlist_app_win8
 
         private async void loginClick(object sender, RoutedEventArgs e)
         {
-                await LoginClass.startLogin();
-                this.Frame.Navigate(typeof(SecondPage));
+            await LoginClass.startLogin(id.Text, pwd.Text);
+            this.Frame.Navigate(typeof(SecondPage));
+
+            logincontrol1.IsOpen = false;
+            this.Opacity = 1.0;
+            gvMain.IsEnabled = true;
+            gvMain.Opacity = 1.0;
         }
+
+
 
         private async void showGroup(Movies current)  //temporary output
         {
@@ -99,7 +138,7 @@ namespace Watchlist_app_win8
 
         private void tempName(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
     }
