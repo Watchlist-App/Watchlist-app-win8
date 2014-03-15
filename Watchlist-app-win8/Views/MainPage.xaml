@@ -97,8 +97,8 @@
                         <PasswordBox  x:Name="pwd"  Height="40" Margin="5,1"  Width="408"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
-                        <Button x:Name="loginclick" Click="loginclick_Click_1" Foreground="Wheat"   Width="100" Content="Login" ></Button>
-                        <Button x:Name="cancel" Click="loginclick_Click_1"   Foreground="Wheat"  Width="100" Content="Cancel" ></Button>
+                        <Button x:Name="loginclick" Click="loginClick" Foreground="Wheat"   Width="100" Content="Login" ></Button>
+                        <Button x:Name="cancel" Click="cancelClick"   Foreground="Wheat"  Width="100" Content="Cancel" ></Button>
                     </StackPanel>
                 </StackPanel>
             </Popup>

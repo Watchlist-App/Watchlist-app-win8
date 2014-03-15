@@ -119,6 +119,7 @@
     <Compile Include="Logic\Delegates.cs" />
     <Compile Include="Logic\InfoLoader.cs" />
     <Compile Include="Logic\Json.cs" />
+    <Compile Include="Logic\LoginClass.cs" />
     <Compile Include="Logic\StartClass.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

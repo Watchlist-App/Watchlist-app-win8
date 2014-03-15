@@ -15,10 +15,8 @@ namespace Watchlist_app_win8.DataFetchers
     //
     class Movies
     {
-
         public ObservableCollection<MoviePreview> results { get; set; }
         public List<MoviePreview> watchlist { get; set; }
-
     }
 
      class MoviePreview

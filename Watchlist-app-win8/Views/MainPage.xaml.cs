@@ -36,7 +36,7 @@ namespace Watchlist_app_win8
             this.Frame.Navigate(typeof(SecondPage));
         }
 
-        private void loginclick_Click_1(object sender, RoutedEventArgs e)
+        private void cancelClick(object sender, RoutedEventArgs e)
         {
             if (!logincontrol1.IsOpen)
             {
@@ -55,22 +55,19 @@ namespace Watchlist_app_win8
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void loginClick(object sender, RoutedEventArgs e)
         {
-            if (!logincontrol1.IsOpen)
-            {
-                gvMain.IsEnabled = false;
-                this.Opacity = .4;
-                container.IsEnabled = true;
-                logincontrol1.IsOpen = true;
-                pop.Width = Window.Current.Bounds.Width;
-            }
-            else
-            {
-                logincontrol1.IsOpen = false;
-                this.Opacity = 1.0;
-                gvMain.IsEnabled = true;
-            }
+            //if ((Name.Text != "") && (pass != ""))
+            //{
+
+                string responce = await Request.getInfo("http://watchlist-app-server.herokuapp.com/user?name=Dmitry Mazuro&password=12345");
+                User currentUser = Json.Serialization_User(responce);
+
+                var dlg = new MessageDialog(currentUser.name); 
+                dlg.ShowAsync();
+               
+                
+                this.Frame.Navigate(typeof(SecondPage));
         }
 
         private async void showGroup(Movies current)  //temporary output
