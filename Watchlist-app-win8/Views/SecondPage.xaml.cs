@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+
+using Watchlist_app_win8.Logic;
 
 // Документацию по шаблону элемента "Основная страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -51,6 +54,8 @@ namespace Watchlist_app_win8.Views
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+            var dlg = new MessageDialog(LoginClass.currentUser.name);
+            dlg.ShowAsync();
         }
 
         /// <summary>

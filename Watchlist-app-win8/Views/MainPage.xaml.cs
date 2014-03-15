@@ -57,16 +57,7 @@ namespace Watchlist_app_win8
 
         private async void loginClick(object sender, RoutedEventArgs e)
         {
-            //if ((Name.Text != "") && (pass != ""))
-            //{
-
-                string responce = await Request.getInfo("http://watchlist-app-server.herokuapp.com/user?name=Dmitry Mazuro&password=12345");
-                User currentUser = Json.Serialization_User(responce);
-
-                var dlg = new MessageDialog(currentUser.name); 
-                dlg.ShowAsync();
-               
-                
+                await LoginClass.startLogin();
                 this.Frame.Navigate(typeof(SecondPage));
         }
 
