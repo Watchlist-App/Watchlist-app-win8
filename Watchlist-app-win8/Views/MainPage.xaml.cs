@@ -117,11 +117,6 @@ namespace Watchlist_app_win8
             gvMain.ItemsSource = _movies;           
         }
 
-        private void showCurrent(Movie current)  //temporary output
-        {
-            //titleBox.Text = current.Title;
-            //overview.Text = current.overview;
-        }
 
         private async void gvMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -139,6 +134,11 @@ namespace Watchlist_app_win8
         private void tempName(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SecondPage));
         }
 
     }

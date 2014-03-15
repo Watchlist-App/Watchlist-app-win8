@@ -8,6 +8,8 @@
     xmlns:common="using:Watchlist_app_win8.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="1080"
+    Width="1920"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -20,7 +22,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Background="WhiteSmoke">
+    <Grid Background="#FF464343">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -45,7 +47,7 @@
                         AutomationProperties.ItemType="Navigation Button" Foreground="Black" BorderBrush="Black" Background="#FF040404"/>
             <TextBlock x:Name="pageTitle" Text="Watchlist-app-win8" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Foreground="Black"/>
-            <TextBlock x:Name="userName" Grid.Column="1" HorizontalAlignment="Left" Margin="956,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="50" Width="221" FontSize="20" Foreground="#FF0A0909"/>
+            <TextBlock x:Name="userName" Grid.Column="1" HorizontalAlignment="Left" Margin="1356,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="57" Width="279" FontSize="20" Foreground="White"/>
         </Grid>
     </Grid>
 </Page>
